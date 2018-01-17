@@ -34,6 +34,7 @@ gem 'pg', '~> 0.21.0'
 
 group :test do
   gem 'rspec-rails', '~> 3.7.2'
+  gem 'capybara'
 end
 
 group :development, :test do
