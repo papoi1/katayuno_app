@@ -21,4 +21,18 @@ class KatasController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @kata = Kata.find(params[:id])
+  end
+
+  def update
+    kata = Kata.find(params[:id])
+    kata.title = params[:kata][:title]
+    kata.description = params[:kata][:description]
+    kata.save
+
+    redirect_to kata_path(kata.id)
+  end
+
 end

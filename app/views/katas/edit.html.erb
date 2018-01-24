@@ -1,0 +1,6 @@
+<center><h1>Edit</h1></center>
+<%= form_for(@kata) do |f|%>
+  <%= f.text_field :title%>
+  <%= f.text_field :description%>
+  <%= f.submit 'Save'%>
+<%end%>

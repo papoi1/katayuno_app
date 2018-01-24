@@ -1,7 +1,9 @@
 <center><h1>Katas</h1></center>
 <ul>
 <% @katas.each do |kata| %>
-  <li><%= link_to(kata.title, kata_path(kata.id)) %></li>
+  <li><%= link_to(kata.title, kata_path(kata.id)) %>
+  - <%= link_to('Edit Kata', edit_kata_path(kata.id)) %></li>
+
   <% end %>
 </ul>
 
