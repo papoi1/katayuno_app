@@ -26,6 +26,13 @@ class KatasController < ApplicationController
     @kata = Kata.find(params[:id])
   end
 
+  def delete
+    kata = Kata.find(params[:id])
+    kata.destroy
+
+    redirect_to root_path
+  end
+
   def update
     kata = Kata.find(params[:id])
     kata.title = params[:kata][:title]

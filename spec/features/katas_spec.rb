@@ -33,11 +33,11 @@ describe 'Kata' do
 
 
   it 'can be updated' do
-      kata_title = 'kata title2'
-      kata_description = 'kata description2'
+      kata_title = 'kata title'
+      kata_description = 'kata description'
 
-          kata_title2 = 'kata title2'
-          kata_description2 = 'kata description2'
+      kata_title2 = 'kata title2'
+      kata_description2 = 'kata description2'
 
       create_kata(title: kata_title, description: kata_description)
 
@@ -50,6 +50,15 @@ describe 'Kata' do
 
       expect(page).to have_content(kata_title2)
       expect(page).to have_content(kata_description2)
+    end
+
+    it 'can be delete' do
+      create_kata
+      visit root_path
+      click_on('Delete')
+
+      visit root_path
+      expect(page).to have_no_content('kata title')
     end
 
   def create_kata(title: 'kata title', description: 'kata description')

@@ -3,6 +3,9 @@
 <% @katas.each do |kata| %>
   <li><%= link_to(kata.title, kata_path(kata.id)) %>
   - <%= link_to('Edit Kata', edit_kata_path(kata.id)) %></li>
+  - <%= link_to('Delete', delete_kata_path(kata.id),
+    {method: :delete, data: {confirm: "are ypou sure?"} } )
+    %></li>
 
   <% end %>
 </ul>
