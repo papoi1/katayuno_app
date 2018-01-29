@@ -23,8 +23,8 @@ describe 'Kata' do
 
     visit root_path
     click_on('New Kata')
-    fill_in(:title, with: kata_title)
-    fill_in(:description, with: kata_description)
+    fill_in(:kata_title, with: kata_title)
+    fill_in(:kata_description, with: kata_description)
     click_on('Save')
 
     expect(page).to have_content(kata_title)
