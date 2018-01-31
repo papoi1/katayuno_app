@@ -1,7 +1,15 @@
 
-
+<p>
+  <% if @kata.errors  %>
+    <ul>
+      <% @kata.errors.each do |error| %>
+        <li> <%= error %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
 <%= form_for(@kata) do |f|%>
   <%= f.text_field :title%>
   <%= f.text_field :description%>
-  <%= f.submit 'Save'%>
+  <%= f.submit t(:save)%>
 <%end%>

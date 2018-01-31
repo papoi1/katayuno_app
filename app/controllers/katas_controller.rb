@@ -1,5 +1,6 @@
 class KatasController < ApplicationController
   before_action :set_kata, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,  only: [:new,  :create, :edit, :update, :destroy]
 
   def index
     @katas = Kata.all
@@ -14,10 +15,10 @@ class KatasController < ApplicationController
   end
 
   def create
-    kata = Kata.new(kata_params)
+    @kata = Kata.new(kata_params)
 
-    if kata.save
-      redirect_to kata_path(kata.id)
+    if @kata.save
+      redirect_to kata_path(@kata.id)
     else
       render :new
     end
@@ -26,12 +27,11 @@ class KatasController < ApplicationController
   def edit
     end
 
+  def update
+    @kata.update(kata_params)
 
-    def update
-      @kata.update(kata_params)
-
-      redirect_to kata_path(@kata.id)
-    end
+    redirect_to kata_path(@kata.id)
+  end
 
   def destroy
     @kata.destroy

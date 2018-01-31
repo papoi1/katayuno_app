@@ -1,11 +1,15 @@
 <center><h1>Katas</h1></center>
+
+<%= link_to('Log out', destroy_user_session_path, {method: :delete}) %>
+
+
 <ul>
 <% @katas.each do |kata| %>
-  <li><%= link_to(kata.title, kata_path(kata.id)) %>
-  - <%= link_to('Edit Kata', edit_kata_path(kata.id)) %></li>
-  - <%= link_to('Delete', kata_path(kata.id),
-    {method: :delete, data: {confirm: "are ypou sure?"} } )
-    %></li>
+  <li>
+    <%= link_to(kata.title, kata_path(kata.id)) %>
+  - <%= edit_kata_link(kata.id) %>
+  - <%= delete_kata_link(kata.id) %>
+  </li>
 
   <% end %>
 </ul>
