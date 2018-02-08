@@ -69,7 +69,8 @@ describe 'Kata' do
     def log_in
       user = User.new(
         email: 'admi@test.com',
-        password: '12345678'
+        password: '12345678',
+        admin: true
       )
       user.save
 
